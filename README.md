@@ -1,6 +1,8 @@
 # Weekly demand forecast for a small cleaning company
 
-How many bookings will a small cleaning company get next week, and how many cleaners does it need? This project answers that from a booking log, using SQL and Python, and checks the forecast on weeks the model has not seen.
+Klira is my own cleaning company. I built this project to answer a question I have every week: how many bookings will come in, and how many cleaners do I need? It works from a booking log, using SQL and Python, and checks the forecast on weeks the model has not seen.
+
+The data in this repository is simulated. It is not Klira's real records (see below).
 
 ## The finding
 
@@ -24,7 +26,7 @@ Why the simple model won: the log covers 63 weeks. That is barely more than one 
 
 To run the analysis on real records, save them as `data/bookings.csv` with the same columns (`booking_id, date, client_id, service, channel, hours, revenue`). The script uses that file first, and it is git-ignored so private data is never uploaded.
 
-## What the business would do with it
+## What the business does with it
 
 The forecast turns into a staffing number: forecast bookings x average hours per booking / 30 billable hours per cleaner per week. On the simulated data that gives 6 cleaners for each of the 8 test weeks. The 30 hours is an assumption, and because a 4-week average predicts the same value for every week ahead, the staffing number is flat too. It is a baseline to plan around, and it should be recalculated each week as new bookings arrive.
 
@@ -52,7 +54,7 @@ Error is measured two ways. MAE is the average miss in bookings per week. MAPE i
 
 ## Next steps
 
-- Run it on real booking records.
+- Run it on Klira's real booking records.
 - Try exponential smoothing, which weights recent weeks more.
 - Test over several time splits.
 
